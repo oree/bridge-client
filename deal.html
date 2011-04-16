@@ -27,7 +27,7 @@
 		});
         
         $().ready(function(){
-            jQuery.getJSON("./gethand.json?", {}, function(data){
+            jQuery.getJSON("/server/randomHand.py?", {}, function(data){
 				log.debug("gethand returned ", data);
                 var hand = data.hand;
                 log.debug(hand);
