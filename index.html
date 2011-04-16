@@ -1,38 +1,60 @@
-<html><head>
-		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
-		<meta name="author" content="Flux User" >
-		<meta name="description" content="My Website" >
-		<meta name="keywords" content="Flux, Mac" >
-		<link href="main.css" rel="stylesheet" type="text/css" >
-		<title>Play Bridge</title>
-	</head>
-	<body style="" >
-	
-	<div id="table">
-		
-		
-		
-		<div class="myhand">
-			
-		<div class="card S2 my1"></div>
-		<div class="card CA my2"></div>
-		<div class="card H10 my3"></div>
-		<div class="card HQ my4"></div>
-		<div class="card S3 my5"></div>
-		<div class="card SA my6"></div>
-		<div class="card S2 my7"></div>
-		<div class="card S2 my8"></div>
-		<div class="card CA my9"></div>
-		<div class="card H10 my10"></div>
-		<div class="card HQ my11"></div>
-		<div class="card S3 my12"></div>
-		<div class="card SA my13"></div>
-		
-	</div>
-	
-	</div>
-	
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta name="author" content="Flux User">
+        <meta name="description" content="My Website">
+        <meta name="keywords" content="Flux, Mac">
+        <link href="main.css" rel="stylesheet" type="text/css">
+        <title>Play Bridge</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js">
+        </script>
+        <script src="scripts/log4js/log4javascript.js">
+        </script>
+    </head>
+    <body>
+        <div id="table">
+            <div class="myhand">
+            </div>
+        </div>
+		<div class="error"></div>
+    <div>
+      <button id="login">Login</button>
+      <button id="logout">Logout</button>
+      <button id="disconnect">Disconnect</button>
+    </div>
+    <div id="user-info" style="display: none;"></div>
 
-</body>
-<script src="main.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+    <div id="fb-root"></div>
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <script>
+      // initialize the library with the API key
+      FB.init({ appId: '178032535583061' });
+
+      // fetch the status on load
+      FB.getLoginStatus(handleSessionResponse);
+
+      $('#login').bind('click', function() {
+        FB.login(handleSessionResponse);
+      });
+
+      $('#logout').bind('click', function() {
+        FB.logout(handleSessionResponse);
+      });
+
+      $('#disconnect').bind('click', function() {
+        FB.api({ method: 'Auth.revokeAuthorization' }, function(response) {
+          clearDisplay();
+        });
+      });
+
+      // no user, clear display
+      function clearDisplay() {
+        $('#user-info').hide('fast');
+      }
+    </script>
+    </body>
+    <script src="main.js">
+    </script>
 </html>

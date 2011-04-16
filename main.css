@@ -161,3 +161,7 @@ html, body {
 .SJ {background-image: url(images/cards/SJ.png);}
 .SQ {background-image: url(images/cards/SQ.png);}
 .SK {background-image: url(images/cards/SK.png);}
+
+.error {
+	display: none;
+}
