@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta name="author" content="Flux User">
+        <meta name="description" content="My Website">
+        <meta name="keywords" content="Flux, Mac">
+        <link href="main.css" rel="stylesheet" type="text/css">
+        <title>Play Bridge</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js">
+        </script>
+        <script src="scripts/log4js/log4javascript.js">
+        </script>
+    </head>
+    <body style="">
+        <div id="table">
+            <div class="myhand">
+            </div>
+        </div>
+		<div class="error"></div>
+    </body>
+    <script src="main.js">
+    </script>
+    <script>
+        var log = log4javascript.getLogger();
+		var appender = new log4javascript.BrowserConsoleAppender();
+		log.addAppender(appender);
+		log.debug("starting");
+		
+		$("div.error").ajaxError(function(e, jqxhr, settings, exception) {
+			log.error("ajax error ", exception);
+ 			$(this).text( "Triggered ajaxError handler." );
+		});
+        
+        $().ready(function(){
+            jQuery.getJSON("./gethand.json?", {}, function(data){
+				log.debug("gethand returned ", data);
+                var hand = data.hand;
+                log.debug(hand);
+                var i = 1;
+                $.each(hand, function(card){
+                    log.debug(hand[card]);
+                    var cls = "card " + hand[card] + " my" + i++;
+                    $("<div/>", {
+                        "class": cls
+                    }).appendTo("div.myhand");
+                });
+            });
+            
+            $(".myhand .card").bind("click", function(){
+                log.debug("click");
+                $(this).fadeToggle("slow", "linear");
+                log.debug("fade");
+            });
+            log.debug("ready done");
+        });
+        log.debug("load");
+    </script>
+</html>
