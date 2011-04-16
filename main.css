@@ -1,7 +1,7 @@
 body {
 	width:760px;
 	height:570px;
-	background-color:#007800;
+	background-color:#FFFFFF;
 	background-image:url(images/mother_of_spades-back.jpg);
 	background-attachment:inherit;
 	background-position:inherit inherit;
@@ -13,6 +13,7 @@ body {
 	position:inherit;
 	margin:0;
 	padding:0;
+	color: white;
 }
 
 .mystyle {
