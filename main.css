@@ -57,7 +57,7 @@ html, body {
 .my5 {
 	rotation: -10deg;
 	-webkit-transform: rotate(-6deg);
-	-webkit-transform: rotate(-6deg);
+	-moz-transform: rotate(-6deg);
 	margin-top: 6px;
 }
 .my6 {
