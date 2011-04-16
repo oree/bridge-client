@@ -6,55 +6,37 @@
         <meta name="keywords" content="Flux, Mac">
         <link href="main.css" rel="stylesheet" type="text/css">
         <title>Play Bridge</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js">
-        </script>
-        <script src="scripts/log4js/log4javascript.js">
-        </script>
     </head>
     <body>
         <div id="table">
+            <div class="buttons">
+                <a class="button " id="newgame"><span>New Game</span></a>
+                <a class="button " id="worldpeace"><span>Bring world peace</span></a>
+                <a class="button " id="login"><span>Login</span></a>
+                <a class="button " id="logout"><span>Logout</span></a>
+                <a class="button " id="disconnect"><span>Disconnect</span></a>
+            </div>
             <div class="myhand">
             </div>
         </div>
-		<div class="error"></div>
-    <div>
-      <button id="login">Login</button>
-      <button id="logout">Logout</button>
-      <button id="disconnect">Disconnect</button>
-    </div>
-    <div id="user-info" style="display: none;"></div>
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-
-    <div id="fb-root"></div>
-    <script src="http://connect.facebook.net/en_US/all.js"></script>
-    <script>
-      // initialize the library with the API key
-      FB.init({ appId: '178032535583061' });
-
-      // fetch the status on load
-      FB.getLoginStatus(handleSessionResponse);
-
-      $('#login').bind('click', function() {
-        FB.login(handleSessionResponse);
-      });
-
-      $('#logout').bind('click', function() {
-        FB.logout(handleSessionResponse);
-      });
-
-      $('#disconnect').bind('click', function() {
-        FB.api({ method: 'Auth.revokeAuthorization' }, function(response) {
-          clearDisplay();
-        });
-      });
-
-      // no user, clear display
-      function clearDisplay() {
-        $('#user-info').hide('fast');
-      }
-    </script>
+        <div class="error">
+        </div>
+        <div>
+        </div>
+        <div id="user-info">
+        </div>
+        <div id="fb-root">
+        </div>
     </body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js">
+    </script>
+    <script src="http://connect.facebook.net/en_US/all.js">
+    </script>
+    <script src="scripts/log4js/log4javascript.js">
+    </script>
     <script src="main.js">
+    </script>
+    <script>
+        initBridge();
     </script>
 </html>

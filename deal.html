@@ -21,11 +21,6 @@
     <script src="main.js">
     </script>
     <script>
-        var log = log4javascript.getLogger();
-		var appender = new log4javascript.BrowserConsoleAppender();
-		log.addAppender(appender);
-		log.debug("starting");
-		
 		$("div.error").ajaxError(function(e, jqxhr, settings, exception) {
 			log.error("ajax error ", exception);
  			$(this).text( "Triggered ajaxError handler." );

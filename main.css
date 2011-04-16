@@ -165,3 +165,48 @@ html, body {
 .error {
 	display: none;
 }
+
+
+.clear { /* generic container (i.e. div) for floating buttons */
+    overflow: hidden;
+    clear: both;
+}
+
+div.buttons {
+	margin-top: 20px;
+	margin-left: 60px;
+}
+
+a.button {
+    background: transparent url('images/button_big-right.png') no-repeat scroll top right;
+    color: #fbed72;
+    display: block;
+    font: normal 30px "Times New Roman", serif;
+    height: 73px;
+	margin-right: 6px;
+    padding-right: 39px; /* sliding doors padding */
+    text-decoration: none;
+	float: left;
+	clear: both;
+	margin-top: 20px;
+	text-shadow: #420101 2px 2px 1px;
+}
+
+a.button span {
+    background: transparent url('images/button_big-left.png') no-repeat;
+    display: block;
+    line-height: 53px;
+    padding: 6px 0 14px 39px;
+}
+
+a.button:hover {
+    background-position: bottom right;
+    color: #cbbd42;
+    outline: none; /* hide dotted outline in Firefox */
+}
+
+a.button:hover span {
+    background-position: bottom left;
+    padding: 7px 0 13px 39px; /* push text down 1px */
+}
+
