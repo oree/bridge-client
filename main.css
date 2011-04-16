@@ -17,3 +17,60 @@ html, body {
 	overflow: hidden;
 }
 
+.card {
+	width: 156px;
+	height: 224px;
+}
+
+.CA {background-image: url(images/cards/CA.png);}
+.C2 {background-image: url(images/cards/C2.png);}
+.C3 {background-image: url(images/cards/C3.png);}
+.C4 {background-image: url(images/cards/C4.png);}
+.C5 {background-image: url(images/cards/C5.png);}
+.C6 {background-image: url(images/cards/C6.png);}
+.C7 {background-image: url(images/cards/C7.png);}
+.C8 {background-image: url(images/cards/C8.png);}
+.C9 {background-image: url(images/cards/C9.png);}
+.C10 {background-image: url(images/cards/C10.png);}
+.CJ {background-image: url(images/cards/CJ.png);}
+.CQ {background-image: url(images/cards/CQ.png);}
+.CK {background-image: url(images/cards/CK.png);}
+.DA {background-image: url(images/cards/DA.png);}
+.D2 {background-image: url(images/cards/D2.png);}
+.D3 {background-image: url(images/cards/D3.png);}
+.D4 {background-image: url(images/cards/D4.png);}
+.D5 {background-image: url(images/cards/D5.png);}
+.D6 {background-image: url(images/cards/D6.png);}
+.D7 {background-image: url(images/cards/D7.png);}
+.D8 {background-image: url(images/cards/D8.png);}
+.D9 {background-image: url(images/cards/D9.png);}
+.D10 {background-image: url(images/cards/D10.png);}
+.DJ {background-image: url(images/cards/DJ.png);}
+.DQ {background-image: url(images/cards/DQ.png);}
+.DK {background-image: url(images/cards/DK.png);}
+.HA {background-image: url(images/cards/HA.png);}
+.H2 {background-image: url(images/cards/H2.png);}
+.H3 {background-image: url(images/cards/H3.png);}
+.H4 {background-image: url(images/cards/H4.png);}
+.H5 {background-image: url(images/cards/H5.png);}
+.H6 {background-image: url(images/cards/H6.png);}
+.H7 {background-image: url(images/cards/H7.png);}
+.H8 {background-image: url(images/cards/H8.png);}
+.H9 {background-image: url(images/cards/H9.png);}
+.H10 {background-image: url(images/cards/H10.png);}
+.HJ {background-image: url(images/cards/HJ.png);}
+.HQ {background-image: url(images/cards/HQ.png);}
+.HK {background-image: url(images/cards/HK.png);}
+.SA {background-image: url(images/cards/SA.png);}
+.S2 {background-image: url(images/cards/S2.png);}
+.S3 {background-image: url(images/cards/S3.png);}
+.S4 {background-image: url(images/cards/S4.png);}
+.S5 {background-image: url(images/cards/S5.png);}
+.S6 {background-image: url(images/cards/S6.png);}
+.S7 {background-image: url(images/cards/S7.png);}
+.S8 {background-image: url(images/cards/S8.png);}
+.S9 {background-image: url(images/cards/S9.png);}
+.S10 {background-image: url(images/cards/S10.png);}
+.SJ {background-image: url(images/cards/SJ.png);}
+.SQ {background-image: url(images/cards/SQ.png);}
+.SK {background-image: url(images/cards/SK.png);}
