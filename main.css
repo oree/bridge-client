@@ -1,21 +1,18 @@
-body {
+html, body {
+	margin:0;
+	padding:0;
+}
+
+#fb-root {
+	display: none;
+}
+
+#table {
 	width:760px;
 	height:570px;
 	background-color:#FFFFFF;
 	background-image:url(images/mother_of_spades-back.jpg);
-	background-attachment:inherit;
-	background-position:inherit inherit;
-	background-position-x:inherit;
-	background-position-y:inherit;
-	background-repeat-x:no-repeat;
-	background-repeat-y:no-repeat;
 	background-repeat:no-repeat;
-	position:inherit;
-	margin:0;
-	padding:0;
 	color: white;
-}
-
-.mystyle {
 }
 

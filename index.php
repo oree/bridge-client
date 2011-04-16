@@ -100,9 +100,7 @@ $naitik = $facebook->api('/eero.raun');
       }());
     </script>
 
-
-	 $user_id = $facebook->require_login();
-	
+	<div id="table">
 
     <h1><a href="example.php">php-sdk</a></h1>
 
@@ -139,5 +137,8 @@ $naitik = $facebook->api('/eero.raun');
     <h3>Naitik</h3>
     <img src="https://graph.facebook.com/naitik/picture">
     <?php echo $naitik['name']; ?>
+    
+    </div>
+    
   </body>
 </html>
