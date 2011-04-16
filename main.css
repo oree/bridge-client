@@ -20,6 +20,80 @@ html, body {
 .card {
 	width: 156px;
 	height: 224px;
+	float:left;
+	margin-right: -120px;
+}
+
+.myhand {
+	position: absolute;
+	left: 110px;
+	top: 400px;
+}
+
+.my1 {
+	rotation: -10deg;
+	-webkit-transform: rotate(-18deg);
+	margin-top: 37px;
+}
+.my2 {
+	rotation: -8deg;
+	-webkit-transform: rotate(-15deg);
+	margin-top: 26px;
+}
+.my3 {
+	rotation: -6deg;
+	-webkit-transform: rotate(-12deg);
+	margin-top: 17px;
+}
+.my4 {
+	rotation: -4deg;
+	-webkit-transform: rotate(-9deg);
+	margin-top: 11px;
+}
+.my5 {
+	rotation: -10deg;
+	-webkit-transform: rotate(-6deg);
+	margin-top: 6px;
+}
+.my6 {
+	rotation: -8deg;
+	-webkit-transform: rotate(-3deg);
+	margin-top: 2px;
+}
+.my7 {
+	rotation: -6deg;
+	-webkit-transform: rotate(0deg);
+	margin-top: 0px;
+}
+.my8 {
+	rotation: -4deg;
+	-webkit-transform: rotate(2deg);
+	margin-top: 2px;
+}
+.my9 {
+	rotation: -10deg;
+	-webkit-transform: rotate(4deg);
+	margin-top: 6px;
+}
+.my10 {
+	rotation: -8deg;
+	-webkit-transform: rotate(6deg);
+	margin-top: 11px;
+}
+.my11 {
+	rotation: -6deg;
+	-webkit-transform: rotate(8deg);
+	margin-top: 17px;
+}
+.my12 {
+	rotation: -4deg;
+	-webkit-transform: rotate(10deg);
+	margin-top: 26px;
+}
+.my13 {
+	rotation: -4deg;
+	-webkit-transform: rotate(12deg);
+	margin-top: 37px;
 }
 
 .CA {background-image: url(images/cards/CA.png);}
