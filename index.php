@@ -100,7 +100,7 @@ $naitik = $facebook->api('/eero.raun');
       }());
     </script>
 
-	<div id="table">
+	<div id="board">
 
     <h1><a href="example.php">php-sdk</a></h1>
 
