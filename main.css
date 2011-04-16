@@ -26,73 +26,86 @@ html, body {
 
 .myhand {
 	position: absolute;
-	left: 110px;
+	left: 93px;
 	top: 400px;
 }
 
 .my1 {
 	rotation: -10deg;
 	-webkit-transform: rotate(-18deg);
+	-moz-transform: rotate(-18deg);
 	margin-top: 37px;
 }
 .my2 {
 	rotation: -8deg;
 	-webkit-transform: rotate(-15deg);
+	-moz-transform: rotate(-15deg);
 	margin-top: 26px;
 }
 .my3 {
 	rotation: -6deg;
 	-webkit-transform: rotate(-12deg);
+	-moz-transform: rotate(-12deg);
 	margin-top: 17px;
 }
 .my4 {
 	rotation: -4deg;
 	-webkit-transform: rotate(-9deg);
+	-moz-transform: rotate(-9deg);
 	margin-top: 11px;
 }
 .my5 {
 	rotation: -10deg;
+	-webkit-transform: rotate(-6deg);
 	-webkit-transform: rotate(-6deg);
 	margin-top: 6px;
 }
 .my6 {
 	rotation: -8deg;
 	-webkit-transform: rotate(-3deg);
+	-moz-transform: rotate(-3deg);
 	margin-top: 2px;
 }
 .my7 {
 	rotation: -6deg;
 	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
 	margin-top: 0px;
 }
 .my8 {
 	rotation: -4deg;
 	-webkit-transform: rotate(2deg);
+	-moz-transform: rotate(2deg);
 	margin-top: 2px;
 }
 .my9 {
 	rotation: -10deg;
 	-webkit-transform: rotate(4deg);
+	-moz-transform: rotate(4deg);
 	margin-top: 6px;
 }
 .my10 {
 	rotation: -8deg;
 	-webkit-transform: rotate(6deg);
+	-moz-transform: rotate(6deg);
 	margin-top: 11px;
 }
 .my11 {
 	rotation: -6deg;
 	-webkit-transform: rotate(8deg);
+	-moz-transform: rotate(8deg);
 	margin-top: 17px;
 }
 .my12 {
 	rotation: -4deg;
 	-webkit-transform: rotate(10deg);
+	-moz-transform: rotate(10deg);
 	margin-top: 26px;
 }
 .my13 {
 	rotation: -4deg;
 	-webkit-transform: rotate(12deg);
+	-moz-transform: rotate(12deg);
 	margin-top: 37px;
 }
 
