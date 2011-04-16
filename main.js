@@ -65,6 +65,13 @@ function initBridge() {
 	$("#newgame").bind("click", function() {
 		location.href="./deal.html";
 	});
+	$("#worldpeace").bind("click", function() {
+		location.href="./worldpeace.html";
+	});
+	$("#soon").bind("click", function() {
+		location.href="./";
+	});
+	
 	
 	$().ready(function() {
 		
