@@ -162,6 +162,7 @@ html, body {
 .SJ {background-image: url(images/cards/SJ.png);}
 .SQ {background-image: url(images/cards/SQ.png);}
 .SK {background-image: url(images/cards/SK.png);}
+.back {background-image: url(images/cards/card_back.png);}
 
 .error {
 	display: none;
@@ -243,6 +244,13 @@ a.smallbutton:hover span {
     padding: 7px 6px 13px 24px; /* push text down 1px */
 }
 
+#dealbutton {
+	position: absolute;
+	float: left;
+	top: 320px;
+	left: 300px;
+}
+
 div#spinner {
 	width: 140px;
 	height: 140px;
@@ -284,22 +292,40 @@ div#debug {
 div.playerInviteBox {
 	position: absolute;
 	width: 300px;
-	height: 100px;
-	border: solid 1px green;
+	height: 60px;
+	text-align: center;
+}
+
+body#index .playerInviteBox {
+	display: none;
 }
 
 div.playerInviteBox input {
 	background-color: #003300;
+    font: normal 18px "Times New Roman", serif;
+    color: #fbed72;
 }
 
+div.playerInviteBox a.smallbutton {
+	text-align: center;
+	margin: auto;
+	float: right;
+}
+
+div.playerInviteBox .user-name {
+	overflow: hidden;
+    font: normal 18px "Times New Roman", serif;
+    color: #fbed72;
+	text-shadow: #420101 2px 2px 1px;
+}
 
 div#invitePlayerW {
-	top: 300px;
+	top: 240px;
 	left: 30px;
 }
 div#invitePlayerE {
-	top: 300px;
-	right: 30px;
+	top: 240px;
+	left: 430px;
 }
 div#invitePlayerN {
 	top: 30px;

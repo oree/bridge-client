@@ -88,8 +88,9 @@ function initBridge() {
 function doPrepInvite() {
 	log.info("now prepping invite");
 
-	if (! friendList) {
-		$.getScript("https://graph.facebook.com/me/friends?access_token=" + session.access_token + "&callback=friendListCallback");
+	if (!friendList) {
+		$.getScript("https://graph.facebook.com/me/friends?access_token="
+				+ session.access_token + "&callback=friendListCallback");
 	}
 
 	$("a.button").hide("fast");
@@ -98,34 +99,70 @@ function doPrepInvite() {
 		"margin-left" : "300px"
 	}, 700);
 	$(".user-welcome").hide('slow');
-
-	$("#dealbutton").animate( {
-		"display" : "block",
-		"position" : "absolute",
-		"margin-left" : "500px",
-		"top" : "500px"
-	}, 300);
-	
 }
 
-var friendList;  // cache our friends this session.
+var friendList; // cache our friends this session.
 
 function friendListCallback(data) {
-	log.debug("got friends:", data);
-	friendList = data;
+	log.debug("got friends:", data.data);
+	friendList = data.data;
+	$.each(friendList, function(i, val){
+		if (! val.value) val.value = val.name;
+	});
+	log.debug("better list:", friendList);
 	doInvite();
 }
 
 function doInvite() {
 	log.info("now inviting");
 
-	doBid();
+	var countdown = 3; // need 3 ppl
+
+	$("div.playerInviteBox").show("fast");
+	$("div.playerInviteBox a").show("fast");
+	$("div.playerInviteBox input").autocomplete( {
+		source : friendList,
+		select : function(event, item) {
+			log.debug("item selected", item.item);
+			$(this).parent().data("fb-friend", item.item);
+		}
+	});
+	$("div.playerInviteBox a").bind("click", function() {
+		log.debug("invite click");
+		var parent = $(this).parent();
+		log.debug("parent", parent);
+		var friend = parent.data("fb-friend");
+		log.debug("friend", friend);
+		if (friend && friend.id) {
+			log.debug("inviting", friend.id, friend.name);
+			
+			$("input", parent).hide();
+			$("a", parent).hide();
+			$(".user-pic", parent).attr("src", "https://graph.facebook.com/" + friend.id + "/picture").show();
+			$(".user-name", parent).text(friend.name);			
+
+			countdown --;
+			if (countdown == 0) {
+				log.debug("everybody invited, now ready to bid!");
+				setTimeout(doWaitInvitees, 200);
+			}
+		}
+		return false;
+	});
+
 }
 
-function doBid() {
-	log.info("now bidding");
-
-	setTimeout(doDeal, 2000);
+function doWaitInvitees() {
+	log.info("now waiting for invitees...");
+	
+	$("#dealbutton").show("fast");
+	$("#dealbutton").click(function() {
+		$("div.playerInviteBox").hide("slow");
+		$("#dealbutton").hide("slow");
+		setTimeout(doDeal, 200);
+		return false;
+	});
+	
 }
 
 function doDeal() {
@@ -138,6 +175,7 @@ function doDeal() {
 		var hand = data.hand;
 		log.debug(hand);
 		var i = 1;
+		$("div.myhand").empty();
 		$.each(hand, function(card) {
 			log.debug(hand[card]);
 			var cls = "card " + hand[card] + " my" + i++;
@@ -145,7 +183,20 @@ function doDeal() {
 				"class" : cls
 			}).appendTo("div.myhand").data("card", hand[card]);
 		});
+		setTimeout(doBid, 200);
 	});
+
+}
+
+function doBid() {
+	log.info("now bidding");
+	
+	setTimeout(doTakeTricks, 200);
+	
+}
+
+function doTakeTricks() {
+	log.info("now taking tricks");
 
 	$(".myhand .card").live("click", function() {
 		log.debug("click");
@@ -160,7 +211,6 @@ function doDeal() {
 				doScore();
 		});
 	});
-	log.debug("ready done");
 }
 
 function doScore() {
@@ -177,5 +227,5 @@ function doScore() {
 		"margin-left" : "100px"
 	}, 500);
 
-	setTimeout(doDeal, 1000);
+	setTimeout(doWaitInvitees, 300);
 }

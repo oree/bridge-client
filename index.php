@@ -66,6 +66,7 @@ $naitik = $facebook->api('/eero.raun');
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <link href="css/le-frog/jquery-ui-1.8.11.custom.css" rel="stylesheet" type="text/css">
         <link href="main.css" rel="stylesheet" type="text/css">
         <title>Play Bridge with the Mother of Spades</title>
     </head>
@@ -88,13 +89,36 @@ $naitik = $facebook->api('/eero.raun');
                 <a class="button" id="disconnect"><span>Unauthorize this App</span></a>
                 <a class="button" id="worldpeace"><span>Bring world peace</span></a>
             </div>
-                <a class="smallbutton" id="dealbutton"><span>Deal</span></a>
+                <a class="smallbutton" id="dealbutton"><span>Deal Cards!</span></a>
+			<div class="playerInviteBox" id="invitePlayerN">
+				<input type="text" />
+				<a class="smallbutton" ><span>Invite!</span></a>
+	        	<img class="user-pic" />
+	        	<span class="user-name"></span>
+			</div>
+
+			<div class="playerInviteBox" id="invitePlayerE">
+				<input type="text" />
+				<a class="smallbutton"><span>Invite!</span></a>
+	        	<img class="user-pic" />
+	        	<span class="user-name"></span>
+			</div>
+
+			<div class="playerInviteBox" id="invitePlayerW">
+				<input type="text" />
+				<a class="smallbutton"><span>Invite!</span></a>
+	        	<img class="user-pic" />
+	        	<span class="user-name"></span>
+			</div>
+			
             <div class="myhand">
             </div>
         </div>
 
     </body>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js">
+    </script>
+    <script src="scripts/jquery-ui-1.8.11.custom.min.js">
     </script>
     <script src="scripts/log4js/log4javascript.js">
     </script>
