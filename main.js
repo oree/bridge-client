@@ -52,8 +52,8 @@ function initBridge() {
 	if (session) {
 		$("#user-info").show('fast');
 		$("#newgame").show('fast');
-		$("#logout").show('fast');
-		$("#disconnect").show('fast');
+//		$("#logout").show('fast');
+//		$("#disconnect").show('fast');
 	} else {
 		$("#user-name").html("visitor. Please log in");
 		$("#user-pic").hide();

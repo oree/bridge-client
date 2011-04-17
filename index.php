@@ -107,7 +107,7 @@ $naitik = $facebook->api('/eero.raun');
           cookie  : true, // enable cookies to allow the server to access the session
           xfbml   : true // parse XFBML
         });
-		FB.Canvas.setSize({ width: 760, height: 570 });
+		FB.Canvas.setSize({ width: 760, height: 680 });
         // whenever the user logs in, we refresh the page
         FB.Event.subscribe('auth.login', function() {
           window.location.reload();
