@@ -234,3 +234,6 @@ body#index .button {
 	display: none;
 }
 
+div#debug {
+	display: none;
+}
