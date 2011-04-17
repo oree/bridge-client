@@ -221,7 +221,6 @@ a.smallbutton {
     padding-right: 24px; /* sliding doors padding */
     text-decoration: none;
 	float: left;
-	clear: both;
 	margin-top: 20px;
 	text-shadow: #420101 2px 2px 1px;
 }
@@ -280,4 +279,29 @@ div#error {
 
 div#debug {
 	display: none;
+}
+
+div.playerInviteBox {
+	position: absolute;
+	width: 300px;
+	height: 100px;
+	border: solid 1px green;
+}
+
+div.playerInviteBox input {
+	background-color: #003300;
+}
+
+
+div#invitePlayerW {
+	top: 300px;
+	left: 30px;
+}
+div#invitePlayerE {
+	top: 300px;
+	right: 30px;
+}
+div#invitePlayerN {
+	top: 30px;
+	left: 230px;
 }
