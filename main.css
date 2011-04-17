@@ -174,8 +174,8 @@ html, body {
 }
 
 div.buttons {
-	margin-top: 20px;
-	margin-left: 60px;
+	margin-top: 0px;
+	margin-left: 100px;
 }
 
 a.button {
@@ -211,16 +211,26 @@ a.button:hover span {
     padding: 7px 0 13px 39px; /* push text down 1px */
 }
 
-#user-info {
-	display: none;
-}
-
-body#index .button {
-}
-
 div#spinner {
 	width: 140px;
 	height: 140px;
-	margin-left: 310px;
-	margin-top: 215px;
+	margin-top: 60px;
+	margin-left: 100px;
 }
+
+div#user-info {
+	display: none;
+	width: 560px;
+	height: 100px;
+	margin-top: 60px;
+	margin-left: 100px;
+	overflow: hidden;
+    font: normal 30px "Times New Roman", serif;
+    color: #fbed72;
+	text-shadow: #420101 2px 2px 1px;
+}
+
+body#index .button {
+	display: none;
+}
+

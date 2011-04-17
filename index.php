@@ -64,19 +64,42 @@ $naitik = $facebook->api('/eero.raun');
 ?>
 <!doctype html>
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
-  <head>
-    <title>Play Bridge with the Mother of Spades</title>
-	<link href="main.css" rel="stylesheet" type="text/css" >
-	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
-  </head>
-  <body>
-    <!--
-      We use the JS SDK to provide a richer user experience. For more info,
-      look here: http://github.com/facebook/connect-js
-    -->
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <link href="main.css" rel="stylesheet" type="text/css">
+        <title>Play Bridge with the Mother of Spades</title>
+    </head>
+    <body id="index">
     <div id="fb-root"></div>
+
+        <div id="board">
+        	<div id="spinner"><img src="images/spinner.gif"/></div>
+	        <div id="user-info" class="clear">
+	        	<img id="user-pic" src="https://graph.facebook.com/<?php echo $uid; ?>/picture" />
+	        	<span class="user-welcome">Welcome, </span>
+	        	<span id="user-name"><?php echo $me['name']; ?></span>
+	        	<span class="user-welcome">!</span>
+	        </div>
+            <div class="buttons">
+                <a class="button" id="newgame"><span>Start a New Game</span></a>
+                <a class="button" id="login" href="<?php echo $loginUrl; ?>"><span>Log in with Facebook</span></a>
+                <a class="button" id="logout" href="<?php echo $logoutUrl; ?>"><span>Log out</span></a>
+                <a class="button" id="disconnect"><span>Unauthorize this App</span></a>
+                <a class="button" id="worldpeace"><span>Bring world peace</span></a>
+            </div>
+            <div class="myhand">
+            </div>
+        </div>
+
+    </body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js">
+    </script>
+    <script src="scripts/log4js/log4javascript.js">
+    </script>
+    <script src="main.js">
+    </script>
     <script>
-      window.fbAsyncInit = function() {
+	  window.fbAsyncInit = function() {
         FB.init({
           appId   : '<?php echo $facebook->getAppId(); ?>',
           session : <?php echo json_encode($session); ?>, // don't refetch the session when PHP already has it
@@ -85,12 +108,12 @@ $naitik = $facebook->api('/eero.raun');
           xfbml   : true // parse XFBML
         });
 		FB.Canvas.setSize({ width: 760, height: 570 });
-		
         // whenever the user logs in, we refresh the page
         FB.Event.subscribe('auth.login', function() {
           window.location.reload();
-        });
-      };
+        });        
+        $(function() { initBridge(); });
+	  };
 
       (function() {
         var e = document.createElement('script');
@@ -98,45 +121,15 @@ $naitik = $facebook->api('/eero.raun');
         e.async = true;
         document.getElementById('fb-root').appendChild(e);
       }());
-    </script>
+	</script>
 
-	<div id="board">
+	<div id="error"></div>
 
-    <h1><a href="example.php">php-sdk</a></h1>
+	<div id="debug">
 
-    <?php if ($me): ?>
-    <a href="<?php echo $logoutUrl; ?>">
-      <img src="http://static.ak.fbcdn.net/rsrc.php/z2Y31/hash/cxrz4k7j.gif">
-    </a>
-    <?php else: ?>
-    <div>
-      Using JavaScript &amp; XFBML: <fb:login-button></fb:login-button>
-    </div>
-    <div>
-      Without using JavaScript &amp; XFBML:
-      <a href="<?php echo $loginUrl; ?>">
-        <img src="http://static.ak.fbcdn.net/rsrc.php/zB6N8/hash/4li2k73z.gif">
-      </a>
-    </div>
-    <?php endif ?>
-
-    <h3>Session</h3>
-    <?php if ($me): ?>
     <pre><?php print_r($session); ?></pre>
 
-    <h3>You</h3>
-    <img src="https://graph.facebook.com/<?php echo $uid; ?>/picture">
-    <?php echo $me['name']; ?>
-
-    <h3>Your User Object</h3>
     <pre><?php print_r($me); ?></pre>
-    <?php else: ?>
-    <strong><em>You are not Connected.</em></strong>
-    <?php endif ?>
-
-    <h3>Naitik</h3>
-    <img src="https://graph.facebook.com/naitik/picture">
-    <?php echo $naitik['name']; ?>
     
     </div>
     
