@@ -1,16 +1,67 @@
-<html><head>
-		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
-		<meta name="author" content="Flux User" >
-		<meta name="description" content="My Website" >
-		<meta name="keywords" content="Flux, Mac" >
-		<link href="main.css" rel="stylesheet" type="text/css" >
-		<title>Play Bridge</title>
-	</head>
-	<body style="" >
+<!doctype html>
+<html xmlns:fb="http://www.facebook.com/2008/fbml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <link href="main.css" rel="stylesheet" type="text/css">
+        <title>Play Bridge with the Mother of Spades</title>
+    </head>
+    <body id="test">
+    <div id="fb-root"></div>
 	
 	<div id="board">
-        	<div id="spinner"><img src="images/spinner.gif"/></div>
+         	<div id="spinner"><img src="images/spinner.gif"/></div>
+	        <div id="user-info" class="clear">
+	        	<img id="user-pic" src="https://graph.facebook.com/<?php echo $uid; ?>/picture" />
+	        	<span class="user-welcome">Welcome, </span>
+	        	<span id="user-name"><?php echo $me['first_name']; ?></span>
+	        	<span class="user-welcome">!</span>
+	        </div>
+	        
+            <div class="buttons">
+                <a class="button" id="worldpeace"><span>Bring world peace</span></a>
+            </div>
 
-	</div>
+            <a class="smallbutton" id="dealbutton"><span>Deal</span></a>
 
-</body></html>
+            <div class="myhand">
+            </div>
+ 	</div>	
+	
+    </body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js">
+    </script>
+    <script src="scripts/log4js/log4javascript.js">
+    </script>
+    <script src="main.js">
+    </script>
+    <script>
+	  window.fbAsyncInit = function() {
+        FB.init({
+          appId   : '178032535583061',
+          status  : true, // check login status
+          cookie  : true, // enable cookies to allow the server to access the session
+          xfbml   : true // parse XFBML
+        });
+		FB.Canvas.setSize({ width: 760, height: 680 });
+        // whenever the user logs in, we refresh the page
+        FB.Event.subscribe('auth.login', function() {
+          window.location.reload();
+        });        
+        $(function() { initBridge(); });
+	  };
+
+      (function() {
+        var e = document.createElement('script');
+        e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+        e.async = true;
+        document.getElementById('fb-root').appendChild(e);
+      }());
+	</script>
+
+	<div id="error"></div>
+
+	<div id="debug">
+    </div>
+    
+  </body>
+</html>

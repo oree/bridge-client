@@ -77,9 +77,10 @@ $naitik = $facebook->api('/eero.raun');
 	        <div id="user-info" class="clear">
 	        	<img id="user-pic" src="https://graph.facebook.com/<?php echo $uid; ?>/picture" />
 	        	<span class="user-welcome">Welcome, </span>
-	        	<span id="user-name"><?php echo $me['name']; ?></span>
+	        	<span id="user-name"><?php echo $me['first_name']; ?></span>
 	        	<span class="user-welcome">!</span>
 	        </div>
+
             <div class="buttons">
                 <a class="button" id="newgame"><span>Start a New Game</span></a>
                 <a class="button" id="login" href="<?php echo $loginUrl; ?>"><span>Log in with Facebook</span></a>
@@ -87,6 +88,7 @@ $naitik = $facebook->api('/eero.raun');
                 <a class="button" id="disconnect"><span>Unauthorize this App</span></a>
                 <a class="button" id="worldpeace"><span>Bring world peace</span></a>
             </div>
+                <a class="smallbutton" id="dealbutton"><span>Deal</span></a>
             <div class="myhand">
             </div>
         </div>
@@ -99,10 +101,12 @@ $naitik = $facebook->api('/eero.raun');
     <script src="main.js">
     </script>
     <script>
+      var appId = '<?php echo $facebook->getAppId(); ?>';
+      var session = <?php echo json_encode($session); ?>;
 	  window.fbAsyncInit = function() {
         FB.init({
-          appId   : '<?php echo $facebook->getAppId(); ?>',
-          session : <?php echo json_encode($session); ?>, // don't refetch the session when PHP already has it
+          appId   : appId,
+          session : session, // don't refetch the session when PHP already has it
           status  : true, // check login status
           cookie  : true, // enable cookies to allow the server to access the session
           xfbml   : true // parse XFBML
