@@ -197,7 +197,7 @@ a.button span {
     background: transparent url(images/button_big-left.png) no-repeat;
     display: block;
     line-height: 53px;
-    padding: 6px 0 14px 39px;
+    padding: 6px 6px 14px 39px;
 }
 
 a.button:hover {
@@ -208,7 +208,40 @@ a.button:hover {
 
 a.button:hover span {
     background-position: bottom left;
-    padding: 7px 0 13px 39px; /* push text down 1px */
+    padding: 7px 6px 13px 39px; /* push text down 1px */
+}
+
+a.smallbutton {
+    background: transparent url(images/button_small-right.png) no-repeat scroll top right;
+    color: #fbed72;
+    display: block;
+    font: normal 18px "Times New Roman", serif;
+    height: 43px;
+	margin-right: 6px;
+    padding-right: 24px; /* sliding doors padding */
+    text-decoration: none;
+	float: left;
+	clear: both;
+	margin-top: 20px;
+	text-shadow: #420101 2px 2px 1px;
+}
+
+a.smallbutton span {
+    background: transparent url(images/button_small-left.png) no-repeat;
+    display: block;
+    line-height: 23px;
+    padding: 6px 6px 14px 24px;
+}
+
+a.smallbutton:hover {
+    background-position: bottom right;
+    color: #cbbd42;
+    outline: none; /* hide dotted outline in Firefox */
+}
+
+a.smallbutton:hover span {
+    background-position: bottom left;
+    padding: 7px 6px 13px 24px; /* push text down 1px */
 }
 
 div#spinner {
@@ -230,7 +263,7 @@ div#user-info {
 	text-shadow: #420101 2px 2px 1px;
 }
 
-body#index .button {
+body#index .button, body#index .smallbutton {
 	display: none;
 }
 
