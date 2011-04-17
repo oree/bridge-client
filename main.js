@@ -94,28 +94,28 @@ function doBid() {
 }
 
 function doDeal() {
-	jQuery.getJSON("../server/randomHand.py?", {},
-			function(data) {
-				$("#user-info").hide("slow");
-				log.debug("gethand returned ", data);
-				var hand = data.hand;
-				log.debug(hand);
-				var i = 1;
-				$.each(hand, function(card) {
-					log.debug(hand[card]);
-					var cls = "card " + hand[card] + " my" + i++;
-					$("<div/>", {
-						"class" : cls
-					}).appendTo("div.myhand").data("card", hand[card]);
-				});
-			});
+	$("#scorecard").hide("slow");
+	jQuery.getJSON("../server/randomHand.py?", {}, function(data) {
+		$("#user-info").hide("slow");
+		log.debug("gethand returned ", data);
+		var hand = data.hand;
+		log.debug(hand);
+		var i = 1;
+		$.each(hand, function(card) {
+			log.debug(hand[card]);
+			var cls = "card " + hand[card] + " my" + i++;
+			$("<div/>", {
+				"class" : cls
+			}).appendTo("div.myhand").data("card", hand[card]);
+		});
+	});
 
 	$(".myhand .card").live("click", function() {
 		log.debug("click");
 		var that = $(this);
 		var card = that.data("card");
 		log.debug("playing ", card);
-		that.fadeOut("slow", "linear", function(){
+		that.fadeOut("slow", "linear", function() {
 			that.remove();
 			var count = $(".myhand .card").length;
 			log.debug("cards left:", count);
@@ -127,6 +127,17 @@ function doDeal() {
 }
 
 function doScore() {
-	
+
+	// Score card appearance.
+	log.debug("show scorecard");
+	$("<img/>", {
+		id: "scorecard",
+		src : "images/scoresh.gif",
+		style : "display: none; position: absolute; float:left;"
+	}).appendTo("table").animate( {
+		"margin-top" : "100px",
+		"margin-left" : "100px"
+	}, 500);
+
 	setTimeout(doDeal, 1000);
 }
