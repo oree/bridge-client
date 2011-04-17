@@ -179,7 +179,7 @@ div.buttons {
 }
 
 a.button {
-    background: transparent url('images/button_big-right.png') no-repeat scroll top right;
+    background: transparent url(images/button_big-right.png) no-repeat scroll top right;
     color: #fbed72;
     display: block;
     font: normal 30px "Times New Roman", serif;
@@ -194,7 +194,7 @@ a.button {
 }
 
 a.button span {
-    background: transparent url('images/button_big-left.png') no-repeat;
+    background: transparent url(images/button_big-left.png) no-repeat;
     display: block;
     line-height: 53px;
     padding: 6px 0 14px 39px;
