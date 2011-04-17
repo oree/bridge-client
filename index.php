@@ -77,7 +77,7 @@ $naitik = $facebook->api('/eero.raun');
 	        <div id="user-info" class="clear">
 	        	<img id="user-pic" src="https://graph.facebook.com/<?php echo $uid; ?>/picture" />
 	        	<span class="user-welcome">Welcome, </span>
-	        	<span id="user-name"><?php echo $me['name']; ?></span>
+	        	<span id="user-name"><?php echo $me['first_name']; ?></span>
 	        	<span class="user-welcome">!</span>
 	        </div>
             <div class="buttons">
