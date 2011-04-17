@@ -110,7 +110,7 @@ function doDeal() {
 				});
 			});
 
-	$(".myhand .card").bind("click", function() {
+	$(".myhand .card").live("click", function() {
 		log.debug("click");
 		$(this).fadeToggle("slow", "linear");
 		log.debug("fade");
