@@ -217,3 +217,10 @@ a.button:hover span {
 
 body#index .button {
 }
+
+div#spinner {
+	width: 140px;
+	height: 140px;
+	margin-left: 310px;
+	margin-top: 215px;
+}
