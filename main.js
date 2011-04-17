@@ -106,14 +106,27 @@ function doDeal() {
 					var cls = "card " + hand[card] + " my" + i++;
 					$("<div/>", {
 						"class" : cls
-					}).appendTo("div.myhand");
+					}).appendTo("div.myhand").data("card", hand[card]);
 				});
 			});
 
 	$(".myhand .card").live("click", function() {
 		log.debug("click");
-		$(this).fadeToggle("slow", "linear");
-		log.debug("fade");
+		var that = $(this);
+		var card = that.data("card");
+		log.debug("playing ", card);
+		that.fadeOut("slow", "linear", function(){
+			that.remove();
+			var count = $(".myhand .card").length;
+			log.debug("cards left:", count);
+			if (count == 0)
+				doScore();
+		});
 	});
 	log.debug("ready done");
+}
+
+function doScore() {
+	
+	setTimeout(doDeal, 1000);
 }
