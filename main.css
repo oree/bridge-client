@@ -267,6 +267,17 @@ body#index .button, body#index .smallbutton {
 	display: none;
 }
 
+div#error {
+	display: none;
+	background-color: red;
+	color: white;
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	top: 10px;
+	left: 0;	
+}
+
 div#debug {
 	display: none;
 }

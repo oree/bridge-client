@@ -12,10 +12,12 @@ $().ready(function() {
 			return true;
 		});
 
-		$("div#error").ajaxError(function(e, jqxhr, settings, exception) {
-			log.error("ajax error ", exception);
-			$(this).text("Triggered ajaxError handler.");
-		});
+		$("div#error").ajaxError(
+				function(e, jqxhr, settings, exception) {
+					log.error("ajax error ", e);
+					$(this).text("Triggered ajaxError handler: " + exception)
+							.show("fast").hide(3000, "swing");
+				});
 
 	});
 
@@ -52,8 +54,8 @@ function initBridge() {
 	if (session) {
 		$("#user-info").show('fast');
 		$("#newgame").show('fast');
-//		$("#logout").show('fast');
-//		$("#disconnect").show('fast');
+		// $("#logout").show('fast');
+		// $("#disconnect").show('fast');
 	} else {
 		$("#user-name").html("visitor. Please log in");
 		$("#user-pic").hide();
@@ -78,25 +80,60 @@ function initBridge() {
 		location.href = "./";
 	});
 	$("#newgame").bind("click", function() {
-		doBid();
+		doPrepInvite();
 	});
 
 }
 
-function doBid() {
+function doPrepInvite() {
+	log.info("now prepping invite");
+
+	if (! friendList) {
+		$.getScript("https://graph.facebook.com/me/friends?access_token=" + session.access_token + "&callback=friendListCallback");
+	}
+
 	$("a.button").hide("fast");
 	$("#user-info").animate( {
 		"margin-top" : "470px",
 		"margin-left" : "300px"
 	}, 700);
 	$(".user-welcome").hide('slow');
+
+	$("#dealbutton").animate( {
+		"display" : "block",
+		"position" : "absolute",
+		"margin-left" : "500px",
+		"top" : "500px"
+	}, 300);
+	
+}
+
+var friendList;  // cache our friends this session.
+
+function friendListCallback(data) {
+	log.debug("got friends:", data);
+	friendList = data;
+	doInvite();
+}
+
+function doInvite() {
+	log.info("now inviting");
+
+	doBid();
+}
+
+function doBid() {
+	log.info("now bidding");
+
 	setTimeout(doDeal, 2000);
 }
 
 function doDeal() {
+	log.info("now dealing");
+
 	$("#scorecard").hide("slow");
 	jQuery.getJSON("../server/randomHand.py?", {}, function(data) {
-		$("#user-info").hide("slow");
+		$("#user-info").hide();
 		log.debug("gethand returned ", data);
 		var hand = data.hand;
 		log.debug(hand);
@@ -127,11 +164,12 @@ function doDeal() {
 }
 
 function doScore() {
+	log.info("now scoring");
 
 	// Score card appearance.
 	log.debug("show scorecard");
 	$("<img/>", {
-		id: "scorecard",
+		id : "scorecard",
 		src : "images/scoresh.gif",
 		style : "display: none; position: absolute; float:left;"
 	}).appendTo("table").animate( {
